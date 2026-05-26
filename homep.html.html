@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3QSpace | Digital Transformation Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0A2647;
+            --primary: #1B4A6E;
+            --primary-light: #2C6E9E;
+            --accent: #00A8CC;
+            --accent-gold: #F4A261;
+            --gray-light: #F8FAFC;
+            --gray: #E2E8F0;
+            --gray-dark: #64748B;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.5;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .logo-small {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--gray-dark);
+            letter-spacing: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background: var(--primary-dark);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 40px;
+            transition: all 0.3s !important;
+        }
+
+        .btn-nav:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary-dark);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-dark);
+            padding: 13px 31px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-dark);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at 100% 0%, rgba(0, 168, 204, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(27, 74, 110, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .stat h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .stat p {
+            font-size: 14px;
+            margin-bottom: 0;
+            color: var(--gray-dark);
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(27, 74, 110, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        /* Cards */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+            border: 1px solid var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .pillar-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .pillar-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        .pillar-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mission Vision */
+        .mission-vision {
+            background: var(--gray-light);
+            padding: 80px 0;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .mv-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .mv-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .mv-card h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+
+        .mv-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Performance Section */
+        .performance {
+            padding: 80px 0;
+        }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .performance-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .perf-badge {
+            background: var(--gray-light);
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .perf-card {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 48px;
+            border-radius: 24px;
+            color: white;
+        }
+
+        .perf-card .value-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .perf-card h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .perf-card p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 968px) {
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Innovation Section */
+        .innovation {
+            background: var(--primary-dark);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .innovation h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .innovation-tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .innovation-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px 24px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .innovation-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .innovation-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .innovation-card p {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .innovation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Core Values */
+        .values {
+            padding: 80px 0;
+        }
+
+        .values-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+        }
+
+        .value-item h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+
+        .value-item p {
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--primary-dark);
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--accent-gold);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-light);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--gray);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">3QSPACE</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#mission">About</a>
+            <a href="#pillars">Solutions</a>
+            <a href="#values">Values</a>
+            <a href="#" class="btn-nav">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="hero-badge">✦ Trusted Digital Transformation Partner</span>
+                    <h1>Empowering businesses for the digital future</h1>
+                    <p>3QSpace enables organizations to achieve scalable growth, maximize top-line revenue, strengthen bottom-line profitability, and continuously improve operational performance through intelligent technology solutions.</p>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="#" class="btn-primary">Start Your Journey →</a>
+                        <a href="#" class="btn-outline">Explore Solutions</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>200+</h3>
+                            <p>Enterprise Clients</p>
+                        </div>
+                        <div class="stat">
+                            <h3>98%</h3>
+                            <p>Client Retention</p>
+                        </div>
+                        <div class="stat">
+                            <h3>40%</h3>
+                            <p>Avg. Efficiency Gain</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x500/1B4A6E/FFFFFF?text=3QSpace+Digital+Transformation" alt="Digital Transformation" style="width: 100%; border-radius: 24px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="mission" class="mission-vision">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Purpose</span>
+                <h2>Mission & Vision</h2>
+                <p>Guiding every decision and solution we deliver</p>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To become a trusted digital transformation partner enabling organizations to achieve scalable growth, maximize top-line revenue, strengthen bottom-line profitability, and continuously identify and improve operational performance through intelligent technology solutions.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">✨</div>
+                    <h3>Our Vision</h3>
+                    <p>To deliver innovative and scalable enterprise solutions that drive digital transformation, optimize business processes, and provide data-driven insights to consistently identify performance gaps, improve operational efficiency, accelerate revenue growth, and enhance overall business profitability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Pillars -->
+    <section id="pillars" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Strategic Framework</span>
+                <h2>Four Pillars of Value Creation</h2>
+                <p>Driving end-to-end transformation across every business dimension</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>Digital Transformation</h3>
+                    <p>Empowering businesses for the digital future with next-gen platforms, cloud-first strategies, and automation that redefines customer & employee experiences.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌱</div>
+                    <h3>Scalable Growth</h3>
+                    <p>Building a strong foundation for sustainable scale — elastic architectures, agile operations, and growth frameworks that adapt to market dynamics.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">📊</div>
+                    <h3>Top-Line Revenue</h3>
+                    <p>Accelerating revenue growth and market expansion through data-led GTM strategies, AI personalization, and new revenue streams.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">💎</div>
+                    <h3>Bottom-Line Profitability</h3>
+                    <p>Strengthening profitability and shareholder value via intelligent cost optimization, process mining, and resilient financial operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Under Supply -->
+    <section class="performance">
+        <div class="container">
+            <div class="performance-grid">
+                <div>
+                    <span class="section-tag">Continuous Excellence</span>
+                    <h2 style="font-size: 36px; margin-bottom: 20px;">Performance Under Supply & Continuous Improvement</h2>
+                    <p style="color: var(--text-muted); line-height: 1.7;">Identifying gaps and improving performance consistently — 3QSpace intelligent solutions embed real-time monitoring, predictive analytics, and closed-loop feedback to transform operational weak points into competitive advantages. We build antifragile systems.</p>
+                    <div class="performance-badges">
+                        <span class="perf-badge">📉 Gap Identification</span>
+                        <span class="perf-badge">🔄 Continuous Optimization</span>
+                        <span class="perf-badge">⚙️ Operational Excellence</span>
+                    </div>
+                </div>
+                <div class="perf-card">
+                    <div class="value-icon">🔍</div>
+                    <h3>Performance Intelligence</h3>
+                    <p>Leverage unified observability & AI-driven diagnostics to identify hidden inefficiencies, reduce waste, and uplift KPIs across supply chain, service ops, and core workflows. Persistent improvement engineered into every solution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section class="innovation">
+        <div class="container">
+            <h2>Innovation Driven. Incremental Solutions. Transformational Growth.</h2>
+            <p class="innovation-tagline">3QSpace — Forward-thinking · Pragmatic agility · Category redefinition</p>
+            <div class="innovation-grid">
+                <div class="innovation-card">
+                    <h3>🚀 INNOVATION DRIVEN</h3>
+                    <p>Leading with emerging tech & bold thinking</p>
+                </div>
+                <div class="innovation-card">
+                    <h3>⚙️ INCREMENTAL SOLUTIONS</h3>
+                    <p>Measurable wins, agile delivery, risk-aware</p>
+                </div>
+                <div class="innovation-card">
+                    <h3>🌿 TRANSFORMATIONAL GROWTH</h3>
+                    <p>Reshaping industries, scaling impact</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section id="values" class="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Cultural Compass</span>
+                <h2>Core Values</h2>
+                <p>The principles that define how we work and partner</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Collaboration</h3>
+                    <p>We partner deeply with clients, ensuring transparency and shared success. Co-creation is at our core.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🔒</div>
+                    <h3>Integrity</h3>
+                    <p>Ethical frameworks, data privacy, and trust at every layer. Uncompromising principles guide our actions.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🏆</div>
+                    <h3>Excellence</h3>
+                    <p>High-velocity delivery, quality craftsmanship, and outcome obsession. We relentlessly pursue the best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to transform your business?</h2>
+            <p>Partner with 3QSpace to unlock scalable growth, accelerate revenue, and drive operational excellence.</p>
+            <a href="#" class="btn-primary">Schedule a Consultation →</a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">3QSPACE</div>
+                <p>Enabling intelligent, scalable growth & operational excellence through digital transformation.</p>
+                <div style="display: flex; gap: 16px;">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <a href="#">Digital Transformation</a>
+                <a href="#">Scalable Growth</a>
+                <a href="#">Revenue Acceleration</a>
+                <a href="#">Profitability Optimization</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Mission & Vision</a>
+                <a href="#">Core Values</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">hello@3qspace.com</a>
+                <a href="#">+1 (555) 123-4567</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 3QSpace — Digital Transformation Partner. All rights reserved.</p>
+            <p style="margin-top: 8px;">INNOVATION DRIVEN · INCREMENTAL SOLUTIONS · TRANSFORMATIONAL GROWTH</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
+</body>
+</html>
