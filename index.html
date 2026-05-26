@@ -131,23 +131,6 @@
             border: 2px solid #0A2647;
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 48px;
-        }
-
-        .stat h3 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #0A2647;
-        }
-
-        .stat p {
-            font-size: 14px;
-            color: #64748B;
-        }
-
         .section-header {
             text-align: center;
             max-width: 700px;
@@ -188,6 +171,12 @@
             padding: 40px;
             border-radius: 24px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         .mv-card h3 {
@@ -216,12 +205,13 @@
             border-radius: 20px;
             padding: 32px;
             border: 1px solid #E2E8F0;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
 
         .pillar-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-color: #1B4A6E;
         }
 
         .pillar-icon {
@@ -237,6 +227,7 @@
 
         .pillar-card p {
             color: #64748B;
+            line-height: 1.6;
         }
 
         .performance {
@@ -249,21 +240,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-        }
-
-        .performance-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .perf-badge {
-            background: white;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #0A2647;
         }
 
         .perf-card {
@@ -287,20 +263,27 @@
 
         .innovation h2 {
             font-size: 36px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
         }
 
         .innovation-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 20px;
         }
 
         .innovation-card {
             background: rgba(255,255,255,0.1);
             padding: 40px;
             border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .innovation-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
         }
 
         .innovation-card h3 {
@@ -335,12 +318,23 @@
             justify-content: center;
             margin: 0 auto 24px;
             font-size: 36px;
+            transition: all 0.3s;
+        }
+
+        .value-item:hover .value-icon {
+            background: #1B4A6E;
+            color: white;
+            transform: scale(1.05);
         }
 
         .value-item h3 {
             font-size: 24px;
             margin-bottom: 12px;
             color: #0A2647;
+        }
+
+        .value-item p {
+            color: #64748B;
         }
 
         .cta {
@@ -358,6 +352,11 @@
         .cta .btn-primary {
             background: white;
             color: #0A2647;
+        }
+
+        .cta .btn-primary:hover {
+            background: #F4A261;
+            color: white;
         }
 
         footer {
@@ -384,6 +383,10 @@
             text-decoration: none;
             margin-bottom: 12px;
             display: block;
+        }
+
+        .footer-col a:hover {
+            color: #1B4A6E;
         }
 
         .copyright {
@@ -413,6 +416,9 @@
             .container {
                 padding: 0 24px;
             }
+            .hero h1 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
@@ -434,17 +440,12 @@
 <main>
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">✦ Trusted Digital Transformation Partner</span>
+            <span class="hero-badge">✦ World-Class Digital Transformation Partner</span>
             <h1>Empowering businesses<br>for the digital future</h1>
-            <p>3QSpace enables organizations to achieve scalable growth, maximize top-line revenue, strengthen bottom-line profitability, and continuously improve operational performance through intelligent technology solutions.</p>
+            <p>3QSpace enables forward-thinking organizations to achieve unprecedented scalable growth, maximize top-line revenue acceleration, strengthen bottom-line profitability, and continuously identify and improve operational performance through cutting-edge intelligent technology solutions.</p>
             <div>
-                <a href="#" class="btn-primary">Start Your Journey →</a>
+                <a href="#" class="btn-primary">Start Your Transformation →</a>
                 <a href="#" class="btn-outline">Explore Solutions</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat"><h3>200+</h3><p>Enterprise Clients</p></div>
-                <div class="stat"><h3>98%</h3><p>Client Retention</p></div>
-                <div class="stat"><h3>40%</h3><p>Efficiency Gain</p></div>
             </div>
         </div>
     </section>
@@ -452,12 +453,18 @@
     <section class="mission-vision">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Purpose</span>
+                <span class="section-tag">Our Purpose & Promise</span>
                 <h2>Mission & Vision</h2>
             </div>
             <div class="mv-grid">
-                <div class="mv-card"><h3>🎯 Our Mission</h3><p>To become a trusted digital transformation partner enabling organizations to achieve scalable growth, maximize top-line revenue, strengthen bottom-line profitability, and continuously identify and improve operational performance through intelligent technology solutions.</p></div>
-                <div class="mv-card"><h3>✨ Our Vision</h3><p>To deliver innovative and scalable enterprise solutions that drive digital transformation, optimize business processes, and provide data-driven insights to consistently identify performance gaps, improve operational efficiency, accelerate revenue growth, and enhance overall business profitability.</p></div>
+                <div class="mv-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To become the most trusted digital transformation partner, enabling organizations to achieve scalable growth without limits, maximize top-line revenue beyond expectations, strengthen bottom-line profitability to new heights, and continuously identify and improve operational performance through intelligent technology solutions that set new industry standards.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>✨ Our Vision</h3>
+                    <p>To deliver groundbreaking, innovative, and infinitely scalable enterprise solutions that drive complete digital transformation, optimize every business process, and provide real-time data-driven insights to consistently identify performance gaps, improve operational efficiency at every level, accelerate revenue growth exponentially, and enhance overall business profitability sustainably.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -465,14 +472,30 @@
     <section class="pillars-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Strategic Framework</span>
+                <span class="section-tag">Our Strategic Framework</span>
                 <h2>Four Pillars of Value Creation</h2>
             </div>
             <div class="pillars-grid">
-                <div class="pillar-card"><div class="pillar-icon">⚡</div><h3>Digital Transformation</h3><p>Empowering businesses for the digital future with next-gen platforms and automation.</p></div>
-                <div class="pillar-card"><div class="pillar-icon">🌱</div><h3>Scalable Growth</h3><p>Building a strong foundation for sustainable scale and agile operations.</p></div>
-                <div class="pillar-card"><div class="pillar-icon">📊</div><h3>Top-Line Revenue</h3><p>Accelerating revenue growth and market expansion through data-led strategies.</p></div>
-                <div class="pillar-card"><div class="pillar-icon">💎</div><h3>Bottom-Line Profitability</h3><p>Strengthening profitability via intelligent cost optimization.</p></div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>Digital Transformation</h3>
+                    <p>Empowering businesses for the digital future with next-generation platforms, cloud-first strategies, and intelligent automation that completely redefines customer and employee experiences.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌱</div>
+                    <h3>Scalable Growth</h3>
+                    <p>Building an unshakeable foundation for sustainable scale — elastic architectures, agile operating models, and growth frameworks that seamlessly adapt to dynamic market conditions.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">📊</div>
+                    <h3>Top-Line Revenue</h3>
+                    <p>Accelerating revenue growth and market expansion through data-led go-to-market strategies, AI-powered personalization, and innovative new revenue stream identification.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">💎</div>
+                    <h3>Bottom-Line Profitability</h3>
+                    <p>Strengthening profitability and maximizing shareholder value via intelligent cost optimization, advanced process mining, and resilient financial operations engineering.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -480,19 +503,36 @@
     <section class="performance">
         <div class="container">
             <div class="performance-grid">
-                <div><span class="section-tag">Continuous Excellence</span><h2 style="font-size: 36px; margin-bottom: 20px;">Performance Under Supply & Continuous Improvement</h2><p>Identifying gaps and improving performance consistently — 3QSpace intelligent solutions embed real-time monitoring and predictive analytics.</p><div class="performance-badges"><span class="perf-badge">📉 Gap Identification</span><span class="perf-badge">🔄 Continuous Optimization</span><span class="perf-badge">⚙️ Operational Excellence</span></div></div>
-                <div class="perf-card"><div style="font-size: 48px; margin-bottom: 24px;">🔍</div><h3>Performance Intelligence</h3><p>Leverage AI-driven diagnostics to identify hidden inefficiencies, reduce waste, and uplift KPIs across supply chain and core workflows.</p></div>
+                <div>
+                    <span class="section-tag">Operational Excellence</span>
+                    <h2 style="font-size: 36px; margin-bottom: 20px;">Performance Under Supply<br>& Continuous Improvement</h2>
+                    <p style="font-size: 16px; line-height: 1.7;">Identifying every performance gap and improving consistently across all operations — 3QSpace's intelligent solutions embed real-time monitoring, predictive analytics, and closed-loop feedback systems that transform operational weak points into powerful competitive advantages. We don't just solve today's friction points; we build antifragile systems that thrive under pressure.</p>
+                </div>
+                <div class="perf-card">
+                    <div style="font-size: 48px; margin-bottom: 24px;">🔍</div>
+                    <h3>Performance Intelligence</h3>
+                    <p>Leverage unified observability and AI-driven diagnostics to identify hidden inefficiencies, eliminate waste, and uplift KPIs across supply chain operations, service delivery, and core business workflows. Persistent improvement is engineered into every solution we deliver.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="innovation">
         <div class="container">
-            <h2>Innovation Driven. Incremental Solutions. Transformational Growth.</h2>
+            <h2>INNOVATION DRIVEN. INCREMENTAL SOLUTIONS. TRANSFORMATIONAL GROWTH.</h2>
             <div class="innovation-grid">
-                <div class="innovation-card"><h3>🚀 INNOVATION DRIVEN</h3><p>Leading with emerging tech & bold thinking</p></div>
-                <div class="innovation-card"><h3>⚙️ INCREMENTAL SOLUTIONS</h3><p>Measurable wins, agile delivery</p></div>
-                <div class="innovation-card"><h3>🌿 TRANSFORMATIONAL GROWTH</h3><p>Reshaping industries, scaling impact</p></div>
+                <div class="innovation-card">
+                    <h3>🚀 INNOVATION DRIVEN</h3>
+                    <p>Leading with emerging technologies and bold thinking — we don't follow trends, we set them. Future-proofing enterprises through relentless innovation.</p>
+                </div>
+                <div class="innovation-card">
+                    <h3>⚙️ INCREMENTAL SOLUTIONS</h3>
+                    <p>Delivering measurable wins through agile delivery and risk-aware implementation — creating momentum with every step toward digital maturity.</p>
+                </div>
+                <div class="innovation-card">
+                    <h3>🌿 TRANSFORMATIONAL GROWTH</h3>
+                    <p>Reshaping entire industries and scaling impact exponentially — moving beyond incremental improvement to category-defining transformation.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -504,9 +544,21 @@
                 <h2>Core Values</h2>
             </div>
             <div class="values-grid">
-                <div class="value-item"><div class="value-icon">🤝</div><h3>Collaboration</h3><p>We partner deeply with clients, ensuring transparency and shared success.</p></div>
-                <div class="value-item"><div class="value-icon">🔒</div><h3>Integrity</h3><p>Ethical frameworks, data privacy, and trust at every layer.</p></div>
-                <div class="value-item"><div class="value-icon">🏆</div><h3>Excellence</h3><p>High-velocity delivery, quality craftsmanship, and outcome obsession.</p></div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h3>Collaboration</h3>
+                    <p>We partner deeply with clients, ensuring complete transparency and shared success. Co-creation is at the heart of everything we do.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🔒</div>
+                    <h3>Integrity</h3>
+                    <p>Uncompromising ethical frameworks, data privacy protection, and trust at every layer of our engagement — our principles are non-negotiable.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🏆</div>
+                    <h3>Excellence</h3>
+                    <p>High-velocity delivery, quality craftsmanship, and outcome obsession — we relentlessly pursue the best possible results for our partners.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -514,7 +566,7 @@
     <section class="cta">
         <div class="container">
             <h2>Ready to transform your business?</h2>
-            <p>Partner with 3QSpace to unlock scalable growth, accelerate revenue, and drive operational excellence.</p>
+            <p>Partner with 3QSpace to unlock scalable growth, accelerate revenue, and drive operational excellence across your entire enterprise.</p>
             <a href="#" class="btn-primary">Schedule a Consultation →</a>
         </div>
     </section>
@@ -523,12 +575,34 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col"><div class="footer-logo">3QSPACE</div><p>Enabling intelligent, scalable growth & operational excellence through digital transformation.</p></div>
-            <div class="footer-col"><h4>Solutions</h4><a href="#">Digital Transformation</a><a href="#">Scalable Growth</a><a href="#">Revenue Acceleration</a></div>
-            <div class="footer-col"><h4>Company</h4><a href="#">About Us</a><a href="#">Mission & Vision</a><a href="#">Core Values</a></div>
-            <div class="footer-col"><h4>Connect</h4><a href="#">Contact Us</a><a href="#">hello@3qspace.com</a></div>
+            <div class="footer-col">
+                <div class="footer-logo">3QSPACE</div>
+                <p>Enabling intelligent, scalable growth and operational excellence through comprehensive digital transformation solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <a href="#">Digital Transformation</a>
+                <a href="#">Scalable Growth</a>
+                <a href="#">Revenue Acceleration</a>
+                <a href="#">Profitability Optimization</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Mission & Vision</a>
+                <a href="#">Core Values</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">hello@3qspace.com</a>
+            </div>
         </div>
-        <div class="copyright"><p>© 2026 3QSpace — Digital Transformation Partner. All rights reserved.</p></div>
+        <div class="copyright">
+            <p>© 2026 3QSpace — Digital Transformation Partner. All rights reserved.</p>
+            <p style="margin-top: 8px;">INNOVATION DRIVEN · INCREMENTAL SOLUTIONS · TRANSFORMATIONAL GROWTH</p>
+        </div>
     </div>
 </footer>
 </body>
