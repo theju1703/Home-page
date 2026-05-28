@@ -75,7 +75,8 @@
             background: #0A2647;
             color: white !important;
             padding: 10px 24px;
-            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
         }
 
         .hero {
@@ -88,7 +89,6 @@
             background: rgba(27, 74, 110, 0.1);
             color: #1B4A6E;
             padding: 6px 16px;
-            border-radius: 40px;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 24px;
@@ -114,10 +114,9 @@
             background: #0A2647;
             color: white;
             padding: 14px 32px;
-            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
-            margin-right: 16px;
+            margin-right: 24px;
         }
 
         .btn-outline {
@@ -125,7 +124,6 @@
             background: transparent;
             color: #0A2647;
             padding: 13px 31px;
-            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
             border: 2px solid #0A2647;
@@ -142,7 +140,6 @@
             background: rgba(27, 74, 110, 0.1);
             color: #1B4A6E;
             padding: 4px 12px;
-            border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 16px;
@@ -169,14 +166,7 @@
         .mv-card {
             background: white;
             padding: 40px;
-            border-radius: 24px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .mv-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
 
         .mv-card h3 {
@@ -202,10 +192,9 @@
 
         .pillar-card {
             background: white;
-            border-radius: 20px;
             padding: 32px;
             border: 1px solid #E2E8F0;
-            transition: all 0.3s;
+            transition: transform 0.3s;
         }
 
         .pillar-card:hover {
@@ -245,7 +234,6 @@
         .perf-card {
             background: linear-gradient(135deg, #0A2647 0%, #1B4A6E 100%);
             padding: 48px;
-            border-radius: 24px;
             color: white;
         }
 
@@ -277,13 +265,10 @@
         .innovation-card {
             background: rgba(255,255,255,0.1);
             padding: 40px;
-            border-radius: 20px;
-            transition: all 0.3s;
         }
 
         .innovation-card:hover {
             background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
         }
 
         .innovation-card h3 {
@@ -312,19 +297,16 @@
             width: 80px;
             height: 80px;
             background: #F1F5F9;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
             font-size: 36px;
-            transition: all 0.3s;
         }
 
         .value-item:hover .value-icon {
             background: #1B4A6E;
             color: white;
-            transform: scale(1.05);
         }
 
         .value-item h3 {
@@ -367,7 +349,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 40px;
         }
 
@@ -387,14 +369,6 @@
 
         .footer-col a:hover {
             color: #1B4A6E;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #E2E8F0;
-            margin-top: 40px;
-            color: #64748B;
         }
 
         @media (max-width: 1024px) {
@@ -430,9 +404,7 @@
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">About</a>
-            <a href="#">Solutions</a>
             <a href="#">Values</a>
-            <a href="#" class="btn-nav">Contact</a>
         </div>
     </div>
 </nav>
@@ -580,13 +552,6 @@
                 <p>Enabling intelligent, scalable growth and operational excellence through comprehensive digital transformation solutions.</p>
             </div>
             <div class="footer-col">
-                <h4>Solutions</h4>
-                <a href="#">Digital Transformation</a>
-                <a href="#">Scalable Growth</a>
-                <a href="#">Revenue Acceleration</a>
-                <a href="#">Profitability Optimization</a>
-            </div>
-            <div class="footer-col">
                 <h4>Company</h4>
                 <a href="#">About Us</a>
                 <a href="#">Mission & Vision</a>
@@ -598,10 +563,6 @@
                 <a href="#">Contact Us</a>
                 <a href="#">hello@3qspace.com</a>
             </div>
-        </div>
-        <div class="copyright">
-            <p>© 2026 3QSpace — Digital Transformation Partner. All rights reserved.</p>
-            <p style="margin-top: 8px;">INNOVATION DRIVEN · INCREMENTAL SOLUTIONS · TRANSFORMATIONAL GROWTH</p>
         </div>
     </div>
 </footer>
